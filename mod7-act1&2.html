@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    </head>
+
+    <body ng-app="">
+        <h2>Registration/Login Page</h2>
+        Sign In <input type="checkbox" ng-model="myVar1" ng-init="myVar1=false">
+        Register <input type="checkbox" ng-model="myVar2" ng-init="myVar2=false">
+        Readonly <input type="checkbox" ng-model="myVar3" ng-init="myVar3=false">
+        <form name="form">
+            <div ng-if="myVar1" ng-hide="toShow">
+                <p>Sign In</p>
+                Username:
+                <input type="text" required ng-model="Name">
+                Password:
+                <input type="text" required ng-model="Password">
+                <input type="button" ng-disabled="form.$invalid" ng-click="toShow=true" value="Sign In"/>
+                <div ng-show="toShow">
+                    Sign In Successful.
+                    <br>
+                    <br>
+                    <input type="button" ng-click="toShow=false" value="Logout"/>
+                </div>
+                
+            </div>
+    
+            <div ng-if="myVar2" ng-hide="toShow2">
+                <p>Register</p>
+                Username:
+                <input type="text" required ng-model="Name">
+                Password:
+                <input type="text" required ng-model="Password">
+                <input type="button" ng-disabled="form.$invalid" ng-click="toShow2=true" value="Register"/>
+                <div ng-show="toShow2">
+                    Sign In Successful.
+                    <br>
+                    <br>
+                    <input type="button" ng-click="toShow2=false" value="Logout"/>
+                </div>
+                
+            </div>
+    
+            <div ng-if="myVar3" ng-hide="toShow3">
+                <label>Click me to make text randomly</label>
+                <input type="text" ng-readonly="checked" value=""/>
+    
+                <input type="text" ng-readonly="checked" value=""/>
+            </div>
+        </form>
+    </body>
+</html>
